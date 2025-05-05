@@ -1,0 +1,2030 @@
+{
+  "address": "7J6JvqXnMiSz4wYdrDy2CKrnoCQTKYwBiQRbqBfbuZVi",
+  "metadata": {
+    "name": "supply_chain",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "buy_product_as_customer_ctx",
+      "discriminator": [
+        30,
+        190,
+        226,
+        204,
+        4,
+        32,
+        136,
+        33
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "customer_product",
+          "writable": true
+        },
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "seller_product",
+          "writable": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "product"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "stock",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "buy_product_as_warehouse",
+      "discriminator": [
+        206,
+        148,
+        142,
+        193,
+        132,
+        120,
+        148,
+        227
+      ],
+      "accounts": [
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "warehouse",
+          "writable": true
+        },
+        {
+          "name": "product",
+          "writable": true
+        },
+        {
+          "name": "factory",
+          "writable": true
+        },
+        {
+          "name": "warehouse_owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "product_id",
+          "type": "u64"
+        },
+        {
+          "name": "factory_id",
+          "type": "u64"
+        },
+        {
+          "name": "stock_to_purchase",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_factory",
+      "discriminator": [
+        11,
+        88,
+        70,
+        244,
+        56,
+        177,
+        41,
+        170
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "factory",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "latitude",
+          "type": "f64"
+        },
+        {
+          "name": "longitude",
+          "type": "f64"
+        },
+        {
+          "name": "contact_info",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "create_logistics_instruction",
+      "discriminator": [
+        125,
+        170,
+        192,
+        55,
+        233,
+        209,
+        108,
+        185
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "logistics",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "warehouse",
+          "writable": true
+        },
+        {
+          "name": "product",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "transportation_mode",
+          "type": "string"
+        },
+        {
+          "name": "contact_info",
+          "type": "string"
+        },
+        {
+          "name": "product_id",
+          "type": "u64"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "u64"
+        },
+        {
+          "name": "latitude",
+          "type": "f64"
+        },
+        {
+          "name": "longitude",
+          "type": "f64"
+        }
+      ]
+    },
+    {
+      "name": "create_order_instruction_as_seller",
+      "discriminator": [
+        236,
+        104,
+        63,
+        20,
+        37,
+        247,
+        3,
+        244
+      ],
+      "accounts": [
+        {
+          "name": "seller_account",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "order",
+          "writable": true
+        },
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "warehouse",
+          "writable": true
+        },
+        {
+          "name": "product",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "warehouse_id",
+          "type": "u64"
+        },
+        {
+          "name": "product_id",
+          "type": "u64"
+        },
+        {
+          "name": "product_stock",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_product",
+      "discriminator": [
+        183,
+        155,
+        202,
+        119,
+        43,
+        114,
+        174,
+        225
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "product",
+          "writable": true
+        },
+        {
+          "name": "factory",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "product_name",
+          "type": "string"
+        },
+        {
+          "name": "product_description",
+          "type": "string"
+        },
+        {
+          "name": "product_image",
+          "type": "string"
+        },
+        {
+          "name": "batch_number",
+          "type": "string"
+        },
+        {
+          "name": "product_price",
+          "type": "u64"
+        },
+        {
+          "name": "raw_material_used",
+          "type": "u64"
+        },
+        {
+          "name": "product_stock",
+          "type": "u64"
+        },
+        {
+          "name": "mrp",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_seller_instruction",
+      "discriminator": [
+        8,
+        100,
+        236,
+        61,
+        183,
+        21,
+        136,
+        153
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "latitude",
+          "type": "f64"
+        },
+        {
+          "name": "longitude",
+          "type": "f64"
+        },
+        {
+          "name": "contact_info",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "create_user",
+      "discriminator": [
+        108,
+        227,
+        130,
+        130,
+        252,
+        109,
+        75,
+        218
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "role",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "create_warehouse_instrution",
+      "discriminator": [
+        230,
+        149,
+        234,
+        16,
+        204,
+        251,
+        144,
+        5
+      ],
+      "accounts": [
+        {
+          "name": "warehouse",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "product",
+          "writable": true
+        },
+        {
+          "name": "factory",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "contact_deatails",
+          "type": "string"
+        },
+        {
+          "name": "factory_id",
+          "type": "u64"
+        },
+        {
+          "name": "warehouse_size",
+          "type": "u64"
+        },
+        {
+          "name": "latitude",
+          "type": "f64"
+        },
+        {
+          "name": "longitude",
+          "type": "f64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_program_state",
+      "discriminator": [
+        114,
+        90,
+        170,
+        208,
+        223,
+        41,
+        40,
+        160
+      ],
+      "accounts": [
+        {
+          "name": "program_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  103,
+                  114,
+                  97,
+                  109,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "inspect_product_instruction",
+      "discriminator": [
+        230,
+        47,
+        87,
+        239,
+        92,
+        241,
+        147,
+        211
+      ],
+      "accounts": [
+        {
+          "name": "inspection_details",
+          "writable": true
+        },
+        {
+          "name": "product",
+          "writable": true
+        },
+        {
+          "name": "factory",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "latitude",
+          "type": "f64"
+        },
+        {
+          "name": "longitude",
+          "type": "f64"
+        },
+        {
+          "name": "product_id",
+          "type": "u64"
+        },
+        {
+          "name": "inspection_outcome",
+          "type": "string"
+        },
+        {
+          "name": "notes",
+          "type": "string"
+        },
+        {
+          "name": "fee_charge_per_product",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "pay_product_inspector_instruction",
+      "discriminator": [
+        51,
+        20,
+        182,
+        175,
+        3,
+        240,
+        226,
+        27
+      ],
+      "accounts": [
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "inspector",
+          "writable": true
+        },
+        {
+          "name": "product",
+          "writable": true
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "inspector_id",
+          "type": "u64"
+        },
+        {
+          "name": "product_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "receive_product_instruction_as_seller",
+      "discriminator": [
+        82,
+        159,
+        88,
+        60,
+        10,
+        178,
+        168,
+        5
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "seller_product_stock",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "order",
+          "writable": true
+        },
+        {
+          "name": "logistics",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "send_logistics_to_seller_instruction",
+      "discriminator": [
+        153,
+        70,
+        47,
+        53,
+        120,
+        178,
+        89,
+        169
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "logistics",
+          "writable": true
+        },
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "warehouse",
+          "writable": true
+        },
+        {
+          "name": "product",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "order",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "logistics_id",
+          "type": "u64"
+        },
+        {
+          "name": "product_id",
+          "type": "u64"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "u64"
+        },
+        {
+          "name": "shipping_cost",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "update_platform_fee",
+      "discriminator": [
+        162,
+        97,
+        186,
+        47,
+        93,
+        113,
+        176,
+        243
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "program_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  111,
+                  103,
+                  114,
+                  97,
+                  109,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "fee",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_balance_as_factory",
+      "discriminator": [
+        204,
+        25,
+        153,
+        203,
+        96,
+        123,
+        250,
+        215
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "factory",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "programs_state",
+          "writable": true
+        },
+        {
+          "name": "platform_address",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_balance_as_logistics_instruction",
+      "discriminator": [
+        26,
+        65,
+        54,
+        77,
+        44,
+        158,
+        11,
+        85
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "logistics",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_balance_as_seller_instruction",
+      "discriminator": [
+        148,
+        244,
+        21,
+        111,
+        114,
+        14,
+        198,
+        191
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "seller",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "programs_state",
+          "writable": true
+        },
+        {
+          "name": "platform_address",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_balance_as_warehouse_instruction",
+      "discriminator": [
+        201,
+        147,
+        219,
+        202,
+        129,
+        243,
+        71,
+        28
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "warehouse",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "programs_state",
+          "writable": true
+        },
+        {
+          "name": "platform_address",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_inspector_balance",
+      "discriminator": [
+        232,
+        239,
+        254,
+        213,
+        20,
+        113,
+        153,
+        44
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "transaction",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "writable": true
+        },
+        {
+          "name": "inspector",
+          "writable": true
+        },
+        {
+          "name": "programs_state",
+          "writable": true
+        },
+        {
+          "name": "platform_address",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "CustomerProduct",
+      "discriminator": [
+        75,
+        186,
+        4,
+        118,
+        148,
+        174,
+        80,
+        255
+      ]
+    },
+    {
+      "name": "Factory",
+      "discriminator": [
+        159,
+        68,
+        192,
+        61,
+        48,
+        249,
+        216,
+        202
+      ]
+    },
+    {
+      "name": "Logistics",
+      "discriminator": [
+        28,
+        67,
+        179,
+        71,
+        113,
+        245,
+        233,
+        245
+      ]
+    },
+    {
+      "name": "Order",
+      "discriminator": [
+        134,
+        173,
+        223,
+        185,
+        77,
+        86,
+        28,
+        51
+      ]
+    },
+    {
+      "name": "Product",
+      "discriminator": [
+        102,
+        76,
+        55,
+        251,
+        38,
+        73,
+        224,
+        229
+      ]
+    },
+    {
+      "name": "ProductInspector",
+      "discriminator": [
+        244,
+        35,
+        172,
+        222,
+        109,
+        170,
+        46,
+        148
+      ]
+    },
+    {
+      "name": "ProgramState",
+      "discriminator": [
+        77,
+        209,
+        137,
+        229,
+        149,
+        67,
+        167,
+        230
+      ]
+    },
+    {
+      "name": "Seller",
+      "discriminator": [
+        76,
+        163,
+        162,
+        59,
+        115,
+        49,
+        116,
+        39
+      ]
+    },
+    {
+      "name": "SellerProductStock",
+      "discriminator": [
+        251,
+        160,
+        200,
+        70,
+        192,
+        110,
+        43,
+        110
+      ]
+    },
+    {
+      "name": "Transaction",
+      "discriminator": [
+        11,
+        24,
+        174,
+        129,
+        203,
+        117,
+        242,
+        23
+      ]
+    },
+    {
+      "name": "User",
+      "discriminator": [
+        159,
+        117,
+        95,
+        227,
+        239,
+        151,
+        58,
+        236
+      ]
+    },
+    {
+      "name": "Warehouse",
+      "discriminator": [
+        162,
+        150,
+        206,
+        71,
+        83,
+        99,
+        222,
+        202
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "UnauthorizedAccess",
+      "msg": "unauthorized access"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidPlatformFee",
+      "msg": "Can not set platform fee more than 5%"
+    },
+    {
+      "code": 6002,
+      "name": "ProgramAlreadyInitialized",
+      "msg": "program already initialized"
+    },
+    {
+      "code": 6003,
+      "name": "UserAlreadyInitialized",
+      "msg": "user already initialized"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidProductId",
+      "msg": "invalid product id"
+    },
+    {
+      "code": 6005,
+      "name": "InsufficientStock",
+      "msg": "insufficient stock"
+    },
+    {
+      "code": 6006,
+      "name": "InsufficientBalance",
+      "msg": "insufficient balance"
+    },
+    {
+      "code": 6007,
+      "name": "InsifficentWithdraw",
+      "msg": "should withdraw atleast 1 SOL"
+    },
+    {
+      "code": 6008,
+      "name": "InvalidWarehouse",
+      "msg": "warehouse not found"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidLogistics",
+      "msg": "logistics not found"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidInspectionOutcome",
+      "msg": "inspection outcome too long"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidNotes",
+      "msg": "notes too long"
+    },
+    {
+      "code": 6012,
+      "name": "InvalidName",
+      "msg": "name too long"
+    },
+    {
+      "code": 6013,
+      "name": "InvalidDescription",
+      "msg": "description too long"
+    },
+    {
+      "code": 6014,
+      "name": "InvalidContactInfo",
+      "msg": "contact info too long"
+    },
+    {
+      "code": 6015,
+      "name": "InvalidRole",
+      "msg": "invalid role"
+    },
+    {
+      "code": 6016,
+      "name": "InvalidFactory",
+      "msg": "invalid factory"
+    },
+    {
+      "code": 6017,
+      "name": "QualityChecked",
+      "msg": "quality already checked"
+    },
+    {
+      "code": 6018,
+      "name": "ProductNotQualityChecked",
+      "msg": "product not quality checked"
+    },
+    {
+      "code": 6019,
+      "name": "InvalidInspectorId",
+      "msg": "invalid inspector id"
+    },
+    {
+      "code": 6020,
+      "name": "InvalidInspector",
+      "msg": "invalid inspector"
+    },
+    {
+      "code": 6021,
+      "name": "InvalidUser",
+      "msg": "invalid user"
+    },
+    {
+      "code": 6022,
+      "name": "Overflow",
+      "msg": "overflow"
+    }
+  ],
+  "types": [
+    {
+      "name": "CustomerProduct",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "product_id",
+            "type": "u64"
+          },
+          {
+            "name": "product_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "seller_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "stock_quantity",
+            "type": "u64"
+          },
+          {
+            "name": "purchased_on",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Factory",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "factory_id",
+            "type": "u64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "created_at",
+            "type": "u64"
+          },
+          {
+            "name": "latitude",
+            "type": "f64"
+          },
+          {
+            "name": "longitude",
+            "type": "f64"
+          },
+          {
+            "name": "contact_info",
+            "type": "string"
+          },
+          {
+            "name": "product_count",
+            "type": "u64"
+          },
+          {
+            "name": "balance",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Logistics",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "logistic_id",
+            "type": "u64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "transportation_mode",
+            "type": "string"
+          },
+          {
+            "name": "contact_info",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "shipment_cost",
+            "type": "u64"
+          },
+          {
+            "name": "product_id",
+            "type": "u64"
+          },
+          {
+            "name": "product_pda",
+            "type": "u64"
+          },
+          {
+            "name": "product_stock",
+            "type": "u64"
+          },
+          {
+            "name": "delivery_confirmed",
+            "type": "bool"
+          },
+          {
+            "name": "balance",
+            "type": "u64"
+          },
+          {
+            "name": "warehouse_id",
+            "type": "u64"
+          },
+          {
+            "name": "shipment_started_at",
+            "type": "u64"
+          },
+          {
+            "name": "shipment_ended_at",
+            "type": "u64"
+          },
+          {
+            "name": "delivered",
+            "type": "bool"
+          },
+          {
+            "name": "latitude",
+            "type": "f64"
+          },
+          {
+            "name": "longitude",
+            "type": "f64"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Order",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "order_id",
+            "type": "u64"
+          },
+          {
+            "name": "product_id",
+            "type": "u64"
+          },
+          {
+            "name": "product_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "product_stock",
+            "type": "u64"
+          },
+          {
+            "name": "warehouse_id",
+            "type": "u64"
+          },
+          {
+            "name": "warehouse_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_price",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "u64"
+          },
+          {
+            "name": "seller_id",
+            "type": "u64"
+          },
+          {
+            "name": "seller_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "logistic_id",
+            "type": "u64"
+          },
+          {
+            "name": "logistic_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Product",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "product_id",
+            "type": "u64"
+          },
+          {
+            "name": "product_name",
+            "type": "string"
+          },
+          {
+            "name": "product_description",
+            "type": "string"
+          },
+          {
+            "name": "batch_number",
+            "type": "string"
+          },
+          {
+            "name": "product_image",
+            "type": "string"
+          },
+          {
+            "name": "factory_id",
+            "type": "u64"
+          },
+          {
+            "name": "factory_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "product_price",
+            "type": "u64"
+          },
+          {
+            "name": "product_stock",
+            "type": "u64"
+          },
+          {
+            "name": "raw_material_used",
+            "type": "u64"
+          },
+          {
+            "name": "quality_checked",
+            "type": "bool"
+          },
+          {
+            "name": "inspection_id",
+            "type": "u64"
+          },
+          {
+            "name": "inspector_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "inspection_fee_paid",
+            "type": "bool"
+          },
+          {
+            "name": "mrp",
+            "type": "u64"
+          },
+          {
+            "name": "created_at",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProductInspector",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "inspector_id",
+            "type": "u64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "type": "f64"
+          },
+          {
+            "name": "longitude",
+            "type": "f64"
+          },
+          {
+            "name": "product_id",
+            "type": "u64"
+          },
+          {
+            "name": "inspection_outcome",
+            "type": "string"
+          },
+          {
+            "name": "notes",
+            "type": "string"
+          },
+          {
+            "name": "inspection_date",
+            "type": "u64"
+          },
+          {
+            "name": "fee_charge_per_product",
+            "type": "u64"
+          },
+          {
+            "name": "balance",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ProgramState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "platform_fee",
+            "type": "u64"
+          },
+          {
+            "name": "initialized",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Seller",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "seller_id",
+            "type": "u64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "products_count",
+            "type": "u64"
+          },
+          {
+            "name": "latitude",
+            "type": "f64"
+          },
+          {
+            "name": "longitude",
+            "type": "f64"
+          },
+          {
+            "name": "contact_info",
+            "type": "string"
+          },
+          {
+            "name": "registered_at",
+            "type": "u64"
+          },
+          {
+            "name": "order_count",
+            "type": "u64"
+          },
+          {
+            "name": "balance",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SellerProductStock",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "seller_id",
+            "type": "u64"
+          },
+          {
+            "name": "seller_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "product_id",
+            "type": "u64"
+          },
+          {
+            "name": "product_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "stock_quantity",
+            "type": "u64"
+          },
+          {
+            "name": "stock_price",
+            "type": "u64"
+          },
+          {
+            "name": "created_at",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Transaction",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "transaction_id",
+            "type": "u64"
+          },
+          {
+            "name": "from",
+            "type": "pubkey"
+          },
+          {
+            "name": "to",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "u64"
+          },
+          {
+            "name": "status",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "User",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "type": "string"
+          },
+          {
+            "name": "created_at",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "factory_count",
+            "type": "u64"
+          },
+          {
+            "name": "transaction_count",
+            "type": "u64"
+          },
+          {
+            "name": "warehouse_count",
+            "type": "u64"
+          },
+          {
+            "name": "logistics_count",
+            "type": "u64"
+          },
+          {
+            "name": "seller_count",
+            "type": "u64"
+          },
+          {
+            "name": "inspector_count",
+            "type": "u64"
+          },
+          {
+            "name": "product_count",
+            "type": "u64"
+          },
+          {
+            "name": "is_customer",
+            "type": "bool"
+          },
+          {
+            "name": "is_initialized",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Warehouse",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "warehouse_id",
+            "type": "u64"
+          },
+          {
+            "name": "factory_id",
+            "type": "u64"
+          },
+          {
+            "name": "created_at",
+            "type": "u64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "product_id",
+            "type": "u64"
+          },
+          {
+            "name": "product_pda",
+            "type": "pubkey"
+          },
+          {
+            "name": "product_count",
+            "type": "u64"
+          },
+          {
+            "name": "latitude",
+            "type": "f64"
+          },
+          {
+            "name": "longitude",
+            "type": "f64"
+          },
+          {
+            "name": "balance",
+            "type": "u64"
+          },
+          {
+            "name": "contact_details",
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "warehouse_size",
+            "type": "u64"
+          },
+          {
+            "name": "logistic_count",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}
